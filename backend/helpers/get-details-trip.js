@@ -1,7 +1,7 @@
 
 'use strict'
 
-class tripMemesData {
+class getDetailsTrip {
 
     tripAdvisorAnyData() 
     {
@@ -10,5 +10,5 @@ class tripMemesData {
     }
     
 }
-module.exports = new tripMemesData();
+module.exports = new getDetailsTrip();
 

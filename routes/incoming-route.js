@@ -1,6 +1,6 @@
 let express = require('express');
 let app = express();
-const tripMemesData = require('../backend/lib/index.js')
+const getDetailsTrip = require('../backend/helpers/get-details-trip.js')
 
 app.get('/', function (req, res) {
     req.get('Referrer')
