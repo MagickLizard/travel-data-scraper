@@ -5,6 +5,7 @@ const getDetailsTrip = require('../backend/helpers/get-details-trip.js')
 app.get('/', function (req, res) {
     req.get('Referrer')
     res.send('Hello memes');
+    console.log('getDetailsTrip', getDetailsTrip.tripAdvisorLocationAddedPromise())
     let userData = [];
     userData.push(req.ip, req.hostname, req.baseUrl, req.originalUrl);
 })
