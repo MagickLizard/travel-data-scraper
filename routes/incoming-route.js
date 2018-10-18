@@ -1,6 +1,14 @@
 let express = require('express');
 let app = express();
-const getDetailsTrip = require('../backend/helpers/get-details-trip.js')
+const getDetailsTrip = require('../backend/helpers/get-details-trip.js');
+let { graphql, buildSchema } = require('graphql');
+
+let schema = buildSchema(`
+  type Query {
+    hello: String
+    memes: String
+  }
+`);
 
 app.get('/', function (req, res) {
     req.get('Referrer')
@@ -24,3 +32,10 @@ let server = app.listen(8080, function () {
     let port = server.address().port
     console.log("app listening at http://%s:%s", host, port)
 })
+
+
+var root = { hello: () => 'Hello world!' };
+var second = { memes: () => 'this is a meme!' };
+graphql(schema, '{ hello }', root,).then((response) => {
+  console.log('test',response);
+});

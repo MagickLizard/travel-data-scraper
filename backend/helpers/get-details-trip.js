@@ -1,6 +1,6 @@
 
 'use strict'
-const scrapeIt = require("scrape-it");
+const scrapeIt = require('scrape-it');
 
 class getDetailsTrip {
 
