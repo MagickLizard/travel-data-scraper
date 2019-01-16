@@ -10,7 +10,7 @@ let schema = buildSchema(`
   }
 `);
 
-app.get('/', function (req, res) {
+app.get('/', (req, res) => {
     req.get('Referrer')
     res.send('Hello memes');
     console.log('getDetailsTrip', getDetailsTrip.tripAdvisorLocationAddedPromise())
@@ -18,19 +18,19 @@ app.get('/', function (req, res) {
     userData.push(req.ip, req.hostname, req.baseUrl, req.originalUrl);
 })
 
-app.post('/', function (req, res) {
+app.post('/', (req, res) => {
     res.send('Got a POST request!')
 })
 
-app.put('/user', function (req, res) {
+app.put('/user', (req, res) => {
     req.headers.host;
     res.send('Got a PUT request at /user')
 })
 
-let server = app.listen(8080, function () {
+let server = app.listen(8080, () => {
     let host = server.address().address
     let port = server.address().port
-    console.log("app listening at http://%s:%s", host, port)
+    console.log("app listening at http://",'host>', host, 'post>', port)
 })
 
 
