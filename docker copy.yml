@@ -1,0 +1,38 @@
+travelscrape-nginx-proxy:
+  image: travelscrape/nginx-proxy
+  container_name: travelscrape-nginx-proxy
+  ports:
+    - "80:80"
+  volumes:
+    - /var/run/docker.sock:/tmp/docker.sock:ro
+travelscrape-db:
+  image: travelscrape/api-mysql56
+  container_name: travelscrape-db
+  ports:
+      - "3306:3306"
+  environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: travelscrape
+      MYSQL_USER: travelscrape
+      MYSQL_PASSWORD: travelscrape
+  volumes:
+    - ./docker/mysql/:/docker-entrypoint-initdb.d
+  cpu_quota: 50000
+nginx:
+  image: travelscrape/api-nginx
+  container_name: api-nginx
+  environment:
+    VIRTUAL_HOST: api.travelscrape.test
+  ports:
+    - "8081:80"
+  links:
+    - javascript
+  volumes_from:
+    - javascript
+javascript:
+  image: travelscrape/base-javascript
+  container_name: api-javascript
+  volumes:
+    - .:/var/www/public
+  links:
+    - travelscrape-db
