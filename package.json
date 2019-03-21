@@ -1,5 +1,5 @@
 {
-  "name": "travel-puller",
+  "name": "travel-data-scraper",
   "version": "1.0.0",
   "description": "A library to pull data from difference travel sources",
   "private": true,
@@ -25,6 +25,9 @@
   },
   "devDependencies": {
     "nodemon": "^1.14.11"
+  },
+  "scripts": {
+    "start": "node routes/incoming-route.js"
   },
   "repository": {
     "type": "git",

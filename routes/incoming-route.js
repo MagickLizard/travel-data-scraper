@@ -10,7 +10,7 @@ let schema = buildSchema(`
   }
 `);
 
-app.get('/', (req, res) => {
+app.get('/test', (req, res) => {
     req.get('Referrer')
     res.send('Hello memes');
     console.log('getDetailsTrip', getDetailsTrip.tripAdvisorLocationAddedPromise())
